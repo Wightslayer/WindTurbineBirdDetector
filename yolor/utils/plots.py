@@ -88,11 +88,12 @@ def plot_wh_methods():  # from utils.general import *; plot_wh_methods()
 
 def output_to_target(output, width, height):
     # Convert model output to target format [batch_id, class_id, x, y, w, h, conf]
-    if torch.is_tensor(output):
-        output = output.cpu().numpy()
 
     targets = []
     for i, o in enumerate(output):
+        if torch.is_tensor(o):
+            o = o.cpu().numpy()
+
         if o is not None:
             for pred in o:
                 box = pred[:4]
