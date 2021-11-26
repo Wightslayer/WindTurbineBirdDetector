@@ -1,0 +1,1 @@
+python train.py --batch-size 16 --img 416 416 --data ../custom_dataset/data.yaml --cfg cfg/yolor_p6.cfg --weights pretrained_weights/yolor_p6.pt --device 0 --name yolor_p6 --hyp data/hyp.scratch.1280.yaml --epochs 25
