@@ -1,3 +1,4 @@
 custom_dataset/
 yolor/runs/
 yolor/pretrained_weights/
+*__pycache__*
