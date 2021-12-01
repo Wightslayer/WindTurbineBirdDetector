@@ -27,7 +27,7 @@ def load_classes(path):
         names = f.read().split('\n')
     return list(filter(None, names))  # filter removes empty strings (such as last line)
 
-def detect(save_img=False):
+def detect(save_img=False, model=None):
     out, source, weights, view_img, save_txt, imgsz, cfg, names = \
         opt.output, opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size, opt.cfg, opt.names
     webcam = source == '0' or source.startswith('rtsp') or source.startswith('http') or source.endswith('.txt')
@@ -40,13 +40,14 @@ def detect(save_img=False):
     half = device.type != 'cpu'  # half precision only supported on CUDA
 
     # Load model
-    model = Darknet(cfg, imgsz).cuda()
-    model.load_state_dict(torch.load(weights[0], map_location=device)['model'])
-    #model = attempt_load(weights, map_location=device)  # load FP32 model
-    #imgsz = check_img_size(imgsz, s=model.stride.max())  # check img_size
-    model.to(device).eval()
-    if half:
-        model.half()  # to FP16
+    if not model:
+        model = Darknet(cfg, imgsz).cuda()
+        model.load_state_dict(torch.load(weights[0], map_location=device)['model'])
+        #model = attempt_load(weights, map_location=device)  # load FP32 model
+        #imgsz = check_img_size(imgsz, s=model.stride.max())  # check img_size
+        model.to(device).eval()
+        if half:
+            model.half()  # to FP16
 
     # Second-stage classifier
     classify = False

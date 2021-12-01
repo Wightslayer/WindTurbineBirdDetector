@@ -1,5 +1,6 @@
 custom_dataset/
 yolor/runs/
 yolor/trained_weights/
+yolor/static/predictions/
 *__pycache__*
 *.idea

@@ -23,11 +23,12 @@ from flask import request
 from flask import render_template
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'C:\\Users\\Wight\\PycharmProjects\\BirdDetector\\WindTurbineBirdDetector\\DLWebService\\static'
+UPLOAD_FOLDER = 'C:\\Users\\Wight\\PycharmProjects\\BirdDetector\\WindTurbineBirdDetector\\yolor\\static\\predictions\\input\\'
+RESULT_FOLDER = 'C:\\Users\\Wight\\PycharmProjects\\BirdDetector\\WindTurbineBirdDetector\\yolor\\static\\predictions\\output\\'
 
 MODEL = None
 MODEL_CFG = 'cfg/yolor_p6.cfg'
-MODEL_WEIGHTS = 'trained_weigths/my_model.pt'
+MODEL_WEIGHTS = 'trained_weights/my_model.pt'
 MODEL_IMG_SIZE = 1280
 DEVICE = 'cuda'
 
@@ -42,7 +43,10 @@ def upload_predict():
             )
             image_file.save(image_location)
             # pred = Make prediction
-            return render_template("index.html", prediction=1, image_loc=image_file.filename)
+            return render_template("index.html",
+                                   prediction=1,
+                                   model_in_loc=image_file.filename,
+                                   model_out_loc=image_file.filename)
     return render_template("index.html", prediction=0, image_loc=None)
 
 
