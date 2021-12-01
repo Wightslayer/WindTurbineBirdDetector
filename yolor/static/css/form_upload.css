@@ -20,7 +20,7 @@ body {
 
 .form-upload {
   width: 100%;
-  max-width: 330px;
+  max-width: 100%;
   padding: 15px;
   margin: 0 auto;
 }
@@ -36,4 +36,22 @@ body {
 }
 .form-upload .form-control:focus {
   z-index: 2;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  align: left;
+  width: 35%;
+  padding: 10px;
+}
+
+
+/* Clear floats after image containers */
+.row {
+  justify-content: center;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }

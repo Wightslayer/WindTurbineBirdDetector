@@ -19,18 +19,34 @@
     <form class="form-upload" method=post enctype=multipart/form-data>
       <h1 class="h3 mb-3 font-weight-normal">Upload image</h1>
       <input type="file" id="image" name="image" class="form-control" required autofocus>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Predict</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Make prediction</button>
       <br>
-      {% if model_in_loc %}
-        <img class="mb-4" src="static/predictions/input/{{model_in_loc}}" alt="" width="256" height="256">
-        <h3 class="h3 mb-3 font-weight-normal">Prediction: {{prediction}}</h3>
-      {%endif%}
 
-      <br>
-      {% if model_out_loc %}
-        <img class="mb-4" src="static/predictions/output/{{model_out_loc}}" alt="" width="256" height="256">
-        <h3 class="h3 mb-3 font-weight-normal">Prediction: {{prediction}}</h3>
-      {%endif%}
+      <div class="row">
+        <div class="column">
+          {% if model_in_loc %}
+            <h1 class="h3 mb-3 font-weight-normal">Input image</h1>
+            <img class="mb-4" src="static/predictions/input/{{model_in_loc}}" alt="" style="width:100%">
+          {%endif%}
+        </div>
+        <div class="column">
+          {% if model_out_loc %}
+            <h1 class="h3 mb-3 font-weight-normal">Model prediction</h1>
+            <img class="mb-4" src="static/predictions/output/{{model_out_loc}}" alt="" style="width:100%">
+          {%endif%}
+        </div>
+      </div>
+
+
+
+<!--      {% if model_in_loc %}-->
+<!--        <h1 class="h3 mb-3 font-weight-normal">Input image</h1>-->
+<!--        <img class="mb-4" src="static/predictions/input/{{model_in_loc}}" alt="" width="640" height="640">-->
+<!--      {%endif%}-->
+<!--      {% if model_out_loc %}-->
+<!--        <h1 class="h3 mb-3 font-weight-normal">Model prediction</h1>-->
+<!--        <img class="mb-4" src="static/predictions/output/{{model_out_loc}}" alt="" width="640" height="640">-->
+<!--      {%endif%}-->
 
 
     </form>

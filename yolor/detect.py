@@ -27,7 +27,7 @@ def load_classes(path):
         names = f.read().split('\n')
     return list(filter(None, names))  # filter removes empty strings (such as last line)
 
-def detect(save_img=False, model=None):
+def detect(save_img=False, opt=None, model=None):
     out, source, weights, view_img, save_txt, imgsz, cfg, names = \
         opt.output, opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size, opt.cfg, opt.names
     webcam = source == '0' or source.startswith('rtsp') or source.startswith('http') or source.endswith('.txt')
@@ -68,7 +68,10 @@ def detect(save_img=False, model=None):
 
     # Get names and colors
     names = load_classes(names)
-    colors = [[random.randint(0, 255) for _ in range(3)] for _ in range(len(names))]
+    if len(names) == 1:  # If only one class, make it clearly visible
+        colors = [[255, 0, 0]]
+    else:
+        colors = [[random.randint(0, 255) for _ in range(3)] for _ in range(len(names))]
 
     # Run inference
     t0 = time.time()
@@ -184,4 +187,4 @@ if __name__ == '__main__':
                 detect()
                 strip_optimizer(opt.weights)
         else:
-            detect()
+            detect(opt=opt)
