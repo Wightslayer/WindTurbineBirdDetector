@@ -16,7 +16,7 @@ import torch.backends.cudnn as cudnn
 from numpy import random
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from ..yolor.detect import detect
+from WindTurbineBirdDetector.yolor.detect import detect
 
 from flask import Flask
 from flask import request
