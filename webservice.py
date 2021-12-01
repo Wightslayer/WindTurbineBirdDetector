@@ -15,9 +15,7 @@ import torch
 import torch.backends.cudnn as cudnn
 from numpy import random
 
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from WindTurbineBirdDetector.yolor.detect import detect
-
+from yolor.detect import detect
 from flask import Flask
 from flask import request
 from flask import render_template
@@ -57,4 +55,4 @@ if __name__ == "__main__":
     # model.half()  # to FP16
     detect()
     print('done')
-    # app.run(port=12000, debug=True)
+    app.run(port=12000, debug=True)
