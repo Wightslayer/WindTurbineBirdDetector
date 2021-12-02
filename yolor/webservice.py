@@ -112,4 +112,4 @@ if __name__ == "__main__":
     model.to(DEVICE).eval()
     model.half()  # to FP16
 
-    app.run(port=12000, debug=True)
+    app.run(host="0.0.0.0", port=12000, debug=True)
