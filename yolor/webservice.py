@@ -1,19 +1,9 @@
 # Webservice based on https://www.youtube.com/watch?v=BUh76-xD5qU&t=2284s
 
-import os
-
 import argparse
 import os
-import sys
-import platform
-import shutil
-import time
-from pathlib import Path
 
-import cv2
 import torch
-import torch.backends.cudnn as cudnn
-from numpy import random
 
 from models.models import *
 from detect import detect
@@ -26,7 +16,6 @@ from flask import render_template
 app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join('static', 'predictions', 'input')
 RESULT_FOLDER = os.path.join('static', 'predictions', 'output')
-
 
 def make_square(im, fill_color=(0, 0, 0, 0)):
     # Thank you Stephen:
@@ -94,6 +83,10 @@ if __name__ == "__main__":
     parser.add_argument('--cfg', type=str, default='cfg/yolor_p6.cfg', help='*.cfg path')
     parser.add_argument('--names', type=str, default='data/BirdDetector.names', help='*.cfg path')
     opt = parser.parse_args()
+
+    # Make directories if not already exists where images are stored when making predictions
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    os.makedirs(RESULT_FOLDER, exist_ok=True)
 
     # Load model
     model = Darknet(opt.cfg, opt.img_size).cuda()
