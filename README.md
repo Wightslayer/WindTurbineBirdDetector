@@ -3,6 +3,8 @@ It's a bird? It's a plane? It's... an internship project assessment!
 
 ![An example prediction from the trained yolor model](misc/Prediction_example1.jpg)
 
+-Figure source: https://scitechdaily.com/wind-turbines-harm-birds-these-design-and-placement-rules-could-minimize-the-impact/
+
 Renewable energy is an increasingly more important topic as time goes by. One method to obtain such energy is with wind turbines in wind parks. Common places are often remote such that the turbines don't bother people, but these places are also common grounds for many bird species. With this project, we attempt to detect these birds near wind turbines.
 
 ## How it's done
