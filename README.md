@@ -1,5 +1,5 @@
 # WindTurbineBirdDetector
-It's a bird? It's a plane? It's a... internship coding assessment!
+It's a bird? It's a plane? It's... an internship project assessment!
 
 ![An example prediction from the trained yolor model](misc/Prediction_example1.jpg)
 
