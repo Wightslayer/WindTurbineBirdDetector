@@ -22,7 +22,7 @@ Installing the dependencies:
 
 Move into the yolor folder:
 - `cd yolor`
-- 
+
 ### Retraining the COCO model
 
 To retrain a pretrained model, first download the trained weights with the yolor/scripts/get_pretrain.sh script and place the weights in a new 'pretrained_weights' folder.
