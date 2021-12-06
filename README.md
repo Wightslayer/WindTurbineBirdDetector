@@ -15,9 +15,9 @@ To make the trained bird detector available over the internet, we used [Flask](h
 ## Installation & Usage
 
 Getting the repository:
-`git clone https://github.com/Wightslayer/WindTurbineBirdDetector.git`
+- `git clone https://github.com/Wightslayer/WindTurbineBirdDetector.git`
 
 Installing the dependencies:
-`conda env create -f BirdDetectorEnv.yml`
+- `conda env create -f BirdDetectorEnv.yml`
 
 
