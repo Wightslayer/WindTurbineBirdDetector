@@ -13,3 +13,11 @@ Renewable energy is an increasingly more important topic as time goes by. One me
 To make the trained bird detector available over the internet, we used [Flask](https://flask.palletsprojects.com/en/1.0.x/) and [Bootstrap](https://getbootstrap.com/) following [this](https://www.youtube.com/watch?v=BUh76-xD5qU&t=2149s) tutorial. All python code for the website is located in webservice.py, the HTML for the website is located in the 'templates' folder and the corresponding css/js is located in the 'static' folder. When the website is online, any image uploaded to the website is saved and the prediction of the model is shown inside the webpage.
 
 ## Installation & Usage
+
+Getting the repository:
+`git clone https://github.com/Wightslayer/WindTurbineBirdDetector.git`
+
+Installing the dependencies:
+`conda env create -f BirdDetectorEnv.yml`
+
+
